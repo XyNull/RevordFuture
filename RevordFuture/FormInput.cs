@@ -25,7 +25,7 @@ namespace RevordFuture
             var dayexpend = new DayExpend {Day = dateTimePicker.Value.Date};
             var item = new ExpendProject
             {
-                Money = int.Parse(textBoxNum.Text),
+                Money = int.Parse(checkBox.Checked ? "-" : "" + textBoxNum.Text),
                 Name = textBoxName.Text
             };
             dayexpend.Projects.Add(item);

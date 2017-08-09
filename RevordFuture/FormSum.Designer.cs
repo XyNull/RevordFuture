@@ -77,6 +77,7 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.label1);
             this.Name = "FormSum";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSum";
             this.Load += new System.EventHandler(this.FormSum_Load);
             this.ResumeLayout(false);

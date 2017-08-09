@@ -38,6 +38,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -75,12 +77,14 @@
             this.ExcelInMenuItem.Name = "ExcelInMenuItem";
             this.ExcelInMenuItem.Size = new System.Drawing.Size(44, 21);
             this.ExcelInMenuItem.Text = "导入";
+            this.ExcelInMenuItem.Click += new System.EventHandler(this.ExcelInMenuItem_Click);
             // 
             // ExcelOutMenuItem
             // 
             this.ExcelOutMenuItem.Name = "ExcelOutMenuItem";
             this.ExcelOutMenuItem.Size = new System.Drawing.Size(44, 21);
             this.ExcelOutMenuItem.Text = "导出";
+            this.ExcelOutMenuItem.Click += new System.EventHandler(this.ExcelOutMenuItem_Click);
             // 
             // dataGridView
             // 
@@ -120,6 +124,10 @@
             this.TimeLabel.Name = "TimeLabel";
             this.TimeLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -155,6 +163,8 @@
         private System.Windows.Forms.ToolStripStatusLabel TimeLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

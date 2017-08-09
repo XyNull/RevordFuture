@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,5 +72,36 @@ namespace RevordFuture
             f.ShowDialog();
         }
 
+        private void ExcelInMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog.ShowDialog();
+
+            var fileStream = openFileDialog.OpenFile();
+            var data = new Dictionary<string, string>();
+            FileRead(fileStream,data);
+
+
+        }
+
+        private static void FileRead(Stream fileStream,IDictionary<string, string> data)
+        {
+            var reader = new StreamReader(fileStream);
+
+            while (true)
+            {
+                var str = reader.ReadLine();
+                var x = new string[2];
+                x = str.Split(',');
+                data.Add(x[0], x[1]);
+                
+            }
+
+
+        }
+
+        private void ExcelOutMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
