@@ -42,7 +42,7 @@ namespace RevordFuture.Constract
         }
 
         /// <summary>
-        /// 使日账目唯一化。
+        /// 使日账目对象唯一化。
         /// </summary>
         /// <param name="dayExpends"></param>
         /// <returns></returns>

@@ -13,25 +13,35 @@ namespace RevordFuture
 {
     public partial class FormInput : Form
     {
-        public List<DayExpend> Days = new List<DayExpend>();
+        private FormMain _formMain;
 
-        public FormInput()
+        public FormInput(FormMain fm)
         {
             InitializeComponent();
+            _formMain = fm;
         }
 
         private void button_Click(object sender, EventArgs e)
         {
             var dayexpend = new DayExpend {Day = dateTimePicker.Value.Date};
-            var item = new ExpendProject
+            try
             {
-                Money = int.Parse(checkBox.Checked ? "-" : "" + textBoxNum.Text),
-                Name = textBoxName.Text
-            };
-            dayexpend.Projects.Add(item);
-            Days.Add(dayexpend);
+                var item = new ExpendProject
+                {
+                    Money = int.Parse(textBoxNum.Text) * (checkBox.Checked ? -1 : 1),
+                    Name = textBoxName.Text
+                };
+                dayexpend.Projects.Add(item);
+                _formMain.AddNode(dayexpend);
 
-            operatingLabel.Text = textBoxName.Text + textBoxNum.Text + "已经加入成功";
+                operatingLabel.ForeColor = Color.Green;
+                operatingLabel.Text = textBoxName.Text + textBoxNum.Text + "已经加入成功";
+            }
+            catch (Exception exception)
+            {
+                operatingLabel.ForeColor = Color.Red;
+                operatingLabel.Text = exception.Message;
+            }
 
             textBoxName.Clear();
             textBoxNum.Clear();
