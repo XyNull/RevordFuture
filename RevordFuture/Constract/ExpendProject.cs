@@ -1,5 +1,8 @@
-﻿namespace RevordFuture.Constract
+﻿using System;
+
+namespace RevordFuture.Constract
 {
+    [Serializable]
     public class ExpendProject
     {
         public string Name;

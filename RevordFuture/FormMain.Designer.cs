@@ -37,7 +37,14 @@ namespace RevordFuture
             this.SumMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExcelInMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExcelOutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FreshMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +91,9 @@ namespace RevordFuture
             this.InputMenuItem,
             this.SumMenuItem,
             this.ExcelInMenuItem,
-            this.ExcelOutMenuItem});
+            this.ExcelOutMenuItem,
+            this.FreshMenuItem,
+            this.clearMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -110,18 +119,55 @@ namespace RevordFuture
             this.ExcelInMenuItem.Name = "ExcelInMenuItem";
             this.ExcelInMenuItem.Size = new System.Drawing.Size(51, 24);
             this.ExcelInMenuItem.Text = "导入";
+            this.ExcelInMenuItem.Click += new System.EventHandler(this.ExcelInMenuItem_Click);
             // 
             // ExcelOutMenuItem
             // 
             this.ExcelOutMenuItem.Name = "ExcelOutMenuItem";
             this.ExcelOutMenuItem.Size = new System.Drawing.Size(51, 24);
             this.ExcelOutMenuItem.Text = "导出";
+            this.ExcelOutMenuItem.Click += new System.EventHandler(this.ExcelOutMenuItem_Click);
+            // 
+            // FreshMenuItem
+            // 
+            this.FreshMenuItem.Name = "FreshMenuItem";
+            this.FreshMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.FreshMenuItem.Text = "刷新";
+            this.FreshMenuItem.Click += new System.EventHandler(this.FreshMenuItem_Click);
+            // 
+            // clearMenuItem
+            // 
+            this.clearMenuItem.Name = "clearMenuItem";
+            this.clearMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.clearMenuItem.Text = "清空";
+            this.clearMenuItem.Click += new System.EventHandler(this.clearMenuItem_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 629);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(532, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 638);
+            this.ClientSize = new System.Drawing.Size(532, 651);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.buttonSum);
@@ -131,9 +177,11 @@ namespace RevordFuture
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RecordFuture";
-            this.Load += new System.EventHandler(this.FormSum_Load);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +198,11 @@ namespace RevordFuture
         private System.Windows.Forms.ToolStripMenuItem SumMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExcelInMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExcelOutMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.ToolStripMenuItem FreshMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearMenuItem;
     }
 }
